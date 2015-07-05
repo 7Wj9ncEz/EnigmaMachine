@@ -13,17 +13,23 @@ public class RotorController extends Rotor implements Alphabet{
 		}
 	}
 	
-	public char cipher (char letter){
-		int position = 0, i;
+	public char cipher (int prev_offset, char letter){
+		int position = 0, i, j;
 		for (i = 0; i < ALPHABET.length(); i++){
-			if (letter == ALPHABET.charAt(i)){
-				position = i;
+			j = i - prev_offset;
+			if (j < 0)
+				j = ALPHABET.length()+j;
+			if (letter == ALPHABET.charAt(j)){
+				position = j;
 				break;
 			}
 		}
-		this.rotate();
-		letter = this.getRotor().charAt(position + this.getOffset());
-		
+		position = position + this.getOffset() - prev_offset;
+		if (position < 0)
+			position = ALPHABET.length() + position;
+		else if (position >= ALPHABET.length())
+			position = -1 + position;
+		letter = this.getRotor().charAt(position);
 		return letter;
 	}
 	
