@@ -5,10 +5,12 @@ import models.Reflector;
 
 public class ReflectorController extends Reflector implements Alphabet{
 
-	public char reflect (char letter){
-		int i, position = 0;
+	public char reflect (int prev_offset, char letter){
+		int i, j, position = 0;
 		for (i = 0; i < ALPHABET.length(); i++){
-			if (letter == ALPHABET.charAt(i)){
+			j = i + prev_offset;
+			j = RotorController.controlSize(j);
+			if (letter == ALPHABET.charAt(j)){
 				position = i;
 				break;
 			}
