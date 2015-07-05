@@ -13,6 +13,6 @@ public class Main {
 		RotorController middleRotor = new RotorController();
 		RotorController rightRotor = new RotorController();
 		ReflectorController reflector = new ReflectorController();
-		
+	
 	}
 }
