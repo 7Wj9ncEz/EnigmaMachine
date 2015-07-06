@@ -6,7 +6,7 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Machine extends JFrame{
-	JPanel lampboard;
+	Lampboard lampboard = new Lampboard();
 	Keyboard keyboard = new Keyboard();
 	
 	public Machine(){
@@ -16,10 +16,7 @@ public class Machine extends JFrame{
 		setVisible(true);
 		setLayout(new GridLayout(2, 1));
 		
-		lampboard = new JPanel();
-		lampboard.setBackground(new Color(255,0,0));
-		
-		add(lampboard);
+		add(lampboard.getLampboard());
 		add(keyboard.getKeyboard());
 		
 	}

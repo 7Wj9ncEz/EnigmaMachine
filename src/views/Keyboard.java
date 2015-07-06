@@ -11,6 +11,7 @@ public class Keyboard extends JFrame{
 	JPanel keyboard, keyboard1, keyboard2, keyboard3;
 	
 	public JPanel getKeyboard (){
+		
 		A = new JButton("A");
 		B = new JButton("B");
 		C = new JButton("C");
@@ -49,7 +50,6 @@ public class Keyboard extends JFrame{
 		
 		keyboard = new JPanel();
 		keyboard.setBackground(Color.lightGray);
-		
 			
 		keyboard1.add(Q);
 		keyboard1.add(W);
@@ -83,7 +83,6 @@ public class Keyboard extends JFrame{
 		keyboard.add(keyboard1);
 		keyboard.add(keyboard2);
 		keyboard.add(keyboard3);
-
 		
 		return keyboard;
 		
