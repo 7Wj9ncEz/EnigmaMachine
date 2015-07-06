@@ -1,12 +1,11 @@
 package views;
 
-import interfaces.Alphabet;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class Keyboard extends JFrame implements ActionListener, Alphabet{
+public class Keyboard extends JFrame implements ActionListener{
 	
 	public JPanel getKeyboard (){
 		JPanel keyboard, keyboard1, keyboard2, keyboard3;
@@ -19,9 +18,9 @@ public class Keyboard extends JFrame implements ActionListener, Alphabet{
 		for (int i = 0; i < keyboardLetters.length(); i++){
 			JButton key = new JButton(""+keyboardLetters.charAt(i));
 			key.addActionListener(this);
-			if (i >= 0 && i <= 8)
+			if (i <= 8)
 				keyboard1.add(key);
-			else if (i >= 9 && i <= 16)
+			else if (i <= 16)
 				keyboard2.add(key);
 			else
 				keyboard3.add(key);
