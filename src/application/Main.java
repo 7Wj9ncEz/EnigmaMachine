@@ -1,7 +1,7 @@
 package application;
 
-import java.util.Scanner;
-
+import javax.swing.JFrame;
+import views.Machine;
 import controllers.*;
 import models.*;
 
@@ -13,6 +13,7 @@ public class Main {
 		RotorController middleRotor = new RotorController();
 		RotorController rightRotor = new RotorController();
 		ReflectorController reflector = new ReflectorController();
-	
+		JFrame machine = new Machine();
+		
 	}
 }
