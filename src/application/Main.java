@@ -1,6 +1,7 @@
 package application;
 
 import javax.swing.JFrame;
+
 import views.Machine;
 import controllers.*;
 import models.*;
@@ -14,6 +15,5 @@ public class Main {
 		RotorController rightRotor = new RotorController();
 		ReflectorController reflector = new ReflectorController();
 		JFrame machine = new Machine();
-		
 	}
 }

@@ -2,10 +2,14 @@ package views;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
+import application.Process;
 
 @SuppressWarnings("serial")
 public class Keyboard extends JFrame implements ActionListener{
+	Process process = new Process();
 	
 	public JPanel getKeyboard (){
 		JPanel keyboard, keyboard1, keyboard2, keyboard3;
@@ -34,7 +38,10 @@ public class Keyboard extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		JButton btn = (JButton)e.getSource();
-		System.out.println(btn.getText());
+		char letter;
+		letter = btn.getText().charAt(0);
+		letter = process.cipher(btn.getText().charAt(0));
+		System.out.println(letter);
 	}
 	
 }

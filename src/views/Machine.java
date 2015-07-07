@@ -1,6 +1,8 @@
 package views;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -20,6 +22,12 @@ public class Machine extends JFrame{
 		add(rotorsPanel.getRotorsPanel());
 		add(lampboard.getLampboard());
 		add(keyboard.getKeyboard());
+		
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				System.exit(0);
+			}
+		});
 		
 	}
 	
