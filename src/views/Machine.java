@@ -16,9 +16,8 @@ public class Machine extends JFrame{
 		setTitle("Enigma Machine");
 		setSize(450,400);
 		setBackground(Color.white);
-		setVisible(true);
 		setLayout(new GridLayout(3, 1));
-		
+		setResizable(false);
 		add(rotorsPanel.getRotorsPanel());
 		add(lampboard.getLampboard());
 		add(keyboard.getKeyboard());
