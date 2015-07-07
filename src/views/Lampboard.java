@@ -2,10 +2,13 @@ package views;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.*;
+import java.util.List;
 
 @SuppressWarnings("serial")
-public class Lampboard extends JFrame{
-
+public class Lampboard extends JFrame {
+	private static List<JLabel> lamps = new ArrayList<JLabel>();
+	
 	public JPanel getLampboard (){
 		JPanel lampboard, lampboard1, lampboard2, lampboard3;
 		String keyboardLetters = "QWERTZUIOASDFGHJKPYXCVBNML";
@@ -29,6 +32,8 @@ public class Lampboard extends JFrame{
 		for (int i = 0; i < keyboardLetters.length(); i++){
 			JLabel label = new JLabel(""+keyboardLetters.charAt(i));
 			label.setHorizontalAlignment(SwingConstants.CENTER);
+			label.setForeground(Color.lightGray);
+			lamps.add(label);
 			if (i <= 9)
 				lampboard1.add(label);
 			else if (i <= 16)
@@ -42,6 +47,15 @@ public class Lampboard extends JFrame{
 		lampboard.add(lampboard3);
 		
 		return lampboard;
+	}
+	
+	public static void lightLamp (char letter){
+		for (JLabel label : lamps){
+			if (label.getText().charAt(0) == letter)
+				label.setForeground(Color.red);
+			else
+				label.setForeground(Color.lightGray);
+		}
 	}
 
 }
