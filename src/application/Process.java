@@ -1,12 +1,13 @@
 package application;
 
+import views.RotorsPanel;
 import models.*;
 import controllers.*;
 
 public class Process {
-	RotorController rightRotor = new RotorController();
-	RotorController middleRotor = new RotorController();
-	RotorController leftRotor = new RotorController();
+	static RotorController rightRotor = new RotorController();
+	static RotorController middleRotor = new RotorController();
+	static RotorController leftRotor = new RotorController();
 	Rotor rotors = new Rotor();
 	ReflectorController reflector = new ReflectorController();
 
@@ -18,10 +19,20 @@ public class Process {
 		leftRotor.setRotor(rotors.getRotorI());
 		leftRotor.setNotch(rotors.getNotchI());
 		rightRotor.rotate();
+		RotorsPanel.setRightRotation(rightRotor.getOffset());
 		if (rightRotor.getOffset() == rightRotor.getNotch()){
 			middleRotor.rotate();
+			RotorsPanel.setMiddleRotation(middleRotor.getOffset());
 			if (middleRotor.getOffset() == middleRotor.getNotch()){
 				leftRotor.rotate();
+				RotorsPanel.setLeftRotation(leftRotor.getOffset());
+			}
+		} else {
+			if (middleRotor.getOffset() == middleRotor.getNotch()-1){
+				middleRotor.rotate();
+				RotorsPanel.setMiddleRotation(middleRotor.getOffset());
+				leftRotor.rotate();
+				RotorsPanel.setLeftRotation(leftRotor.getOffset());
 			}
 		}
 		letter = rightRotor.cipher(0, letter);
@@ -32,5 +43,17 @@ public class Process {
 		letter = middleRotor.reverse_cipher(letter);
 		letter = rightRotor.reverse_cipher(letter);
 		return letter;
+	}
+	
+	public static void setLeftRotation (int num){
+		leftRotor.setOffset(num);
+	}
+	
+	public static void setMiddleRotation (int num){
+		middleRotor.setOffset(num);
+	}
+	
+	public static void setRightRotation (int num){
+		rightRotor.setOffset(num);
 	}
 }
