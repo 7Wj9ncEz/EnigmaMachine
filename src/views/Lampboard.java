@@ -33,7 +33,7 @@ public class Lampboard extends JFrame {
 			label.setHorizontalAlignment(SwingConstants.CENTER);
 			label.setForeground(Color.lightGray);
 			lamps.add(label);
-			if (i <= 9)
+			if (i <= 8)
 				lampboard1.add(label);
 			else if (i <= 16)
 				lampboard2.add(label);
