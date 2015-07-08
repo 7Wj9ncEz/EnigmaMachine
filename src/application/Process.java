@@ -8,16 +8,20 @@ public class Process {
 	static RotorController rightRotor = new RotorController();
 	static RotorController middleRotor = new RotorController();
 	static RotorController leftRotor = new RotorController();
-	Rotor rotors = new Rotor();
+	static Rotor rotors = new Rotor();
 	ReflectorController reflector = new ReflectorController();
 
-	public char cipher (char letter){
+	public static void inicialSetting(){
 		rightRotor.setRotor(rotors.getRotorIII());
 		rightRotor.setNotch(rotors.getNotchIII());
 		middleRotor.setRotor(rotors.getRotorII());
 		middleRotor.setNotch(rotors.getNotchII());
 		leftRotor.setRotor(rotors.getRotorI());
 		leftRotor.setNotch(rotors.getNotchI());
+	}
+	
+	public char cipher (char letter){
+		
 		rightRotor.rotate();
 		RotorsPanel.setRightRotation(rightRotor.getOffset());
 		if (rightRotor.getOffset() == rightRotor.getNotch()){
@@ -43,6 +47,57 @@ public class Process {
 		letter = middleRotor.reverse_cipher(letter);
 		letter = rightRotor.reverse_cipher(letter);
 		return letter;
+	}
+	
+	public static void setLeftRotor(String rotor){
+		if (rotor.equals("I")){
+			leftRotor.setRotor(rotors.getRotorI());
+			leftRotor.setNotch(rotors.getNotchI());
+		} else { 
+			if (rotor.equals("II")){
+				leftRotor.setRotor(rotors.getRotorII());
+				leftRotor.setNotch(rotors.getNotchII());
+			} else { 
+				if (rotor.equals("III")){
+					leftRotor.setRotor(rotors.getRotorIII());
+					leftRotor.setNotch(rotors.getNotchIII());
+				}
+			}
+		}
+	}
+	
+	public static void setMiddleRotor(String rotor){
+		if (rotor.equals("I")){
+			middleRotor.setRotor(rotors.getRotorI());
+			middleRotor.setNotch(rotors.getNotchI());
+		} else { 
+			if (rotor.equals("II")){
+				middleRotor.setRotor(rotors.getRotorII());
+				middleRotor.setNotch(rotors.getNotchII());
+			} else { 
+				if (rotor.equals("III")){
+					middleRotor.setRotor(rotors.getRotorIII());
+					middleRotor.setNotch(rotors.getNotchIII());
+				}
+			}
+		}
+	}
+	
+	public static void setRightRotor(String rotor){
+		if (rotor.equals("I")){
+			rightRotor.setRotor(rotors.getRotorI());
+			rightRotor.setNotch(rotors.getNotchI());
+		} else { 
+			if (rotor.equals("II")) {
+				rightRotor.setRotor(rotors.getRotorII());
+				rightRotor.setNotch(rotors.getNotchII());
+			} else { 
+				if (rotor.equals("III")) {
+					rightRotor.setRotor(rotors.getRotorIII());
+					rightRotor.setNotch(rotors.getNotchIII());
+				}
+			}
+		}
 	}
 	
 	public static void setLeftRotation (int num){
