@@ -27,7 +27,6 @@ public class Lampboard extends JFrame {
 		
 		lampboard = new JPanel();
 		lampboard.setLayout(new GridLayout(3,1));
-		lampboard.setBackground(Color.black);
 		
 		for (int i = 0; i < keyboardLetters.length(); i++){
 			JLabel label = new JLabel(""+keyboardLetters.charAt(i));
