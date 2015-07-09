@@ -1,6 +1,8 @@
 package application;
 
 import java.util.*;
+
+import views.Plugboard;
 import views.RotorsPanel;
 import models.*;
 import controllers.*;
@@ -26,6 +28,28 @@ public class Process {
 		middleRotor.setNotch(rotors.getNotchII());
 		leftRotor.setRotor(rotors.getRotorI());
 		leftRotor.setNotch(rotors.getNotchI());
+	}
+	
+	public static void resetSettings(){
+		rightRotor.setRotor(rotors.getRotorIII());
+		rightRotor.setNotch(rotors.getNotchIII());
+		rightRotor.setOffset(0);
+		rightRotor.setInnerRingPosition(0);
+		middleRotor.setRotor(rotors.getRotorII());
+		middleRotor.setNotch(rotors.getNotchII());
+		middleRotor.setOffset(0);
+		middleRotor.setInnerRingPosition(0);
+		leftRotor.setRotor(rotors.getRotorI());
+		leftRotor.setNotch(rotors.getNotchI());
+		leftRotor.setOffset(0);
+		leftRotor.setInnerRingPosition(0);
+		RotorsPanel.resetSettings();
+		for (int i = 0; i < plugs.size(); i++){
+			plugs.get(i).setLetter1('A');
+			plugs.get(i).setLetter2('A');
+		}
+		Plugboard.resetSettings();
+		
 	}
 	
 	public static void setPlugs(int i, char letter1, char letter2){

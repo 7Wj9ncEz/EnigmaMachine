@@ -93,6 +93,19 @@ public class RotorsPanel extends JFrame implements ItemListener{
 		return ringsPanel;
 	}
 	
+	public static void resetSettings(){
+		leftRotation.setSelectedIndex(0);
+		middleRotation.setSelectedIndex(0);
+		rightRotation.setSelectedIndex(0);
+		leftRotor.setSelectedIndex(0);
+		middleRotor.setSelectedIndex(1);
+		rightRotor.setSelectedIndex(2);
+		leftInnerRing.setSelectedIndex(0);
+		middleInnerRing.setSelectedIndex(0);
+		rightInnerRing.setSelectedIndex(0);
+		
+	}
+	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getSource() == rightRotation)

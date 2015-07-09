@@ -10,8 +10,8 @@ import javax.swing.*;
 
 @SuppressWarnings({"rawtypes","serial", "unchecked"})
 public class Plugboard extends JFrame implements ItemListener{
-	List<JComboBox> plugList = new ArrayList<JComboBox>();
-	List<JComboBox> counterPlugList = new ArrayList<JComboBox>();
+	static List<JComboBox> plugList = new ArrayList<JComboBox>();
+	static List<JComboBox> counterPlugList = new ArrayList<JComboBox>();
 	public JPanel getPlugboard(){
 		JPanel plugboard = new JPanel();
 		String[] Alphabet = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
@@ -35,6 +35,15 @@ public class Plugboard extends JFrame implements ItemListener{
 		
 		return plugboard;
 	}
+	
+	public static void resetSettings(){
+		for (int i = 0; i < plugList.size(); i++){
+			plugList.get(i).setSelectedIndex(i);
+			counterPlugList.get(i).setSelectedIndex(i);
+		}
+			
+	}
+	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		for (int i = 0; i < plugList.size(); i++){

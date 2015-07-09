@@ -1,17 +1,17 @@
 package views;
 
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
+import java.awt.event.*;
+import application.Process;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class Machine extends JFrame{
+public class Machine extends JFrame implements ActionListener{
 	Lampboard lampboard = new Lampboard();
 	Keyboard keyboard = new Keyboard();
 	RotorsPanel rotorsPanel = new RotorsPanel();
 	Plugboard plugboard = new Plugboard();
+	JButton reset = new JButton ("Reset Settings");
 	
 	public Machine(){
 		JPanel machine1 = new JPanel();
@@ -27,9 +27,12 @@ public class Machine extends JFrame{
 		machine1.add(lampboard.getLampboard());
 		machine1.add(keyboard.getKeyboard());
 		
+		reset.addActionListener(this);
+		
 		machine2.setLayout(new BorderLayout(10,20));
 		machine2.add("North", rotorsPanel.getRingsPanel());
 		machine2.add("Center", plugboard.getPlugboard());
+		machine2.add("South", reset);
 		
 		add(machine1);
 		add(machine2);
@@ -40,8 +43,10 @@ public class Machine extends JFrame{
 		});
 		
 	}
-	
-	
-	
-	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == reset)
+			Process.resetSettings();
+	}
 }
