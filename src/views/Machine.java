@@ -3,6 +3,7 @@ package views;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -26,8 +27,9 @@ public class Machine extends JFrame{
 		machine1.add(lampboard.getLampboard());
 		machine1.add(keyboard.getKeyboard());
 		
-		machine2.setLayout(new GridLayout(2,1));
-		machine2.add(plugboard.getPlugboard());
+		machine2.setLayout(new BorderLayout(10,20));
+		machine2.add("North", rotorsPanel.getRingsPanel());
+		machine2.add("Center", plugboard.getPlugboard());
 		
 		add(machine1);
 		add(machine2);

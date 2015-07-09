@@ -45,7 +45,9 @@ public class RotorController extends Rotor implements Alphabet{
 				break;
 			}
 		}
-		j = j + this.getOffset() +this.getInnerRingPosition();
+		j = j + this.getOffset();
+		j = controlSize(j);
+		j = j + this.getInnerRingPosition();
 		j = controlSize(j);
 		for (i = 0; i < this.getRotor().length(); i++){
 			if (ALPHABET.charAt(j) == this.getRotor().charAt(i)){
@@ -53,7 +55,9 @@ public class RotorController extends Rotor implements Alphabet{
 				break;
 			}
 		}
-		position = position - this.getOffset() -this.getInnerRingPosition(); 
+		position = position - this.getOffset(); 
+		position = controlSize(position);
+		position = position - this.getInnerRingPosition();
 		position = controlSize(position);
 		letter = ALPHABET.charAt(position);
 		return letter;

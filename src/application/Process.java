@@ -102,6 +102,24 @@ public class Process {
 		rightRotor.setOffset(num);
 	}
 	
+	public static void setLeftInnerRingPosition (int num){
+		num = 0 - num;
+		num = RotorController.controlSize(num);
+		leftRotor.setInnerRingPosition(num);
+	}
+	
+	public static void setMiddleInnerRingPosition (int num){
+		num = 0 - num;
+		num = RotorController.controlSize(num);
+		middleRotor.setInnerRingPosition(num);
+	}
+	
+	public static void setRightInnerRingPosition (int num){
+		num = 0 - num;
+		num = RotorController.controlSize(num);
+		rightRotor.setInnerRingPosition(num);
+	}
+	
 	public char cipher (char letter){
 		letter = applyPlugs(letter);
 		rightRotor.rotate();
@@ -124,7 +142,7 @@ public class Process {
 		letter = rightRotor.cipher(0, 0, letter);
 		letter = middleRotor.cipher(rightRotor.getOffset(), rightRotor.getInnerRingPosition(), letter);
 		letter = leftRotor.cipher(middleRotor.getOffset(), middleRotor.getInnerRingPosition(), letter);
-		letter = reflector.reflect(leftRotor.getOffset(), letter); //VER SE PRECISA DO INNERRING TAMBÉM
+		letter = reflector.reflect(leftRotor.getOffset(), leftRotor.getInnerRingPosition(), letter); 
 		letter = leftRotor.reverse_cipher(letter);
 		letter = middleRotor.reverse_cipher(letter);
 		letter = rightRotor.reverse_cipher(letter);
