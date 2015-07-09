@@ -121,10 +121,10 @@ public class Process {
 				RotorsPanel.setLeftRotation(leftRotor.getOffset());
 			}
 		}
-		letter = rightRotor.cipher(0, letter);
-		letter = middleRotor.cipher(rightRotor.getOffset(), letter);
-		letter = leftRotor.cipher(middleRotor.getOffset(), letter);
-		letter = reflector.reflect(leftRotor.getOffset(), letter);
+		letter = rightRotor.cipher(0, 0, letter);
+		letter = middleRotor.cipher(rightRotor.getOffset(), rightRotor.getInnerRingPosition(), letter);
+		letter = leftRotor.cipher(middleRotor.getOffset(), middleRotor.getInnerRingPosition(), letter);
+		letter = reflector.reflect(leftRotor.getOffset(), letter); //VER SE PRECISA DO INNERRING TAMBÉM
 		letter = leftRotor.reverse_cipher(letter);
 		letter = middleRotor.reverse_cipher(letter);
 		letter = rightRotor.reverse_cipher(letter);

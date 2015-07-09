@@ -10,6 +10,7 @@ public class Rotor {
 	private int notchII = 5;
 	private int notchI = 17;
 	private int notch;
+	private int innerRingPosition = 0;
 	
 	public String getRotorI(){
 		return this.I;
@@ -59,6 +60,11 @@ public class Rotor {
 		return this.notch;
 	}
 	
+	public int getInnerRingPosition(){
+		return this.innerRingPosition;
+	}
 	
-
+	public void setInnerRingPosition(int innerRingPosition){
+		this.innerRingPosition = innerRingPosition;
+	}
 }
