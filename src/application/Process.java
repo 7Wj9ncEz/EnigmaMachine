@@ -75,6 +75,16 @@ public class Process {
 				if (rotor.equals("III")){
 					leftRotor.setRotor(rotors.getRotorIII());
 					leftRotor.setNotch(rotors.getNotchIII());
+				} else {
+					if (rotor.equals("IV")){
+						leftRotor.setRotor(rotors.getRotorIV());
+						leftRotor.setNotch(rotors.getNotchIV());
+					} else {
+						if (rotor.equals("V")){
+							leftRotor.setRotor(rotors.getRotorV());
+							leftRotor.setNotch(rotors.getNotchV());
+						}
+					}
 				}
 			}
 		}
@@ -92,6 +102,16 @@ public class Process {
 				if (rotor.equals("III")){
 					middleRotor.setRotor(rotors.getRotorIII());
 					middleRotor.setNotch(rotors.getNotchIII());
+				}  else {
+					if (rotor.equals("IV")){
+						middleRotor.setRotor(rotors.getRotorIV());
+						middleRotor.setNotch(rotors.getNotchIV());
+					} else {
+						if (rotor.equals("V")){
+							middleRotor.setRotor(rotors.getRotorV());
+							middleRotor.setNotch(rotors.getNotchV());
+						}
+					}
 				}
 			}
 		}
@@ -109,6 +129,16 @@ public class Process {
 				if (rotor.equals("III")) {
 					rightRotor.setRotor(rotors.getRotorIII());
 					rightRotor.setNotch(rotors.getNotchIII());
+				} else {
+					if (rotor.equals("IV")){
+						rightRotor.setRotor(rotors.getRotorIV());
+						rightRotor.setNotch(rotors.getNotchIV());
+					} else {
+						if (rotor.equals("V")){
+							rightRotor.setRotor(rotors.getRotorV());
+							rightRotor.setNotch(rotors.getNotchV());
+						}
+					}
 				}
 			}
 		}
