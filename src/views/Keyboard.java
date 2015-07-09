@@ -41,7 +41,7 @@ public class Keyboard extends JFrame implements ActionListener{
 		char letter;
 		letter = btn.getText().charAt(0);
 		letter = process.cipher(btn.getText().charAt(0));
-		System.out.println(letter);
+		Lampboard.lightLamp(letter);
 	}
 	
 }

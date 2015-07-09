@@ -21,19 +21,19 @@ public class RotorController extends Rotor implements Alphabet{
 		}
 	}	
 	
-	public char cipher (int prev_offset, char letter){
-		int position = 0, i, j;
+	public char cipher (int prev_offset, int prev_ring_offset, char letter){
+		int position = 0, positionB = 0, i;
 		for (i = 0; i < ALPHABET.length(); i++){
-			j = i - prev_offset;
-			j = controlSize(j);
-			if (letter == ALPHABET.charAt(j)){
-				position = j;
+			if (letter == ALPHABET.charAt(i)){
+				position = i;
 				break;
 			}
 		}
-		position = position + this.getOffset() - prev_offset; //CONFIRMAR NECESSIDADE
+		position = position + this.getOffset() - prev_offset - prev_ring_offset;
 		position = controlSize(position);
-		letter = this.getRotor().charAt(position);
+		positionB = position + this.getInnerRingPosition();
+		positionB = controlSize(positionB);
+		letter = this.getRotor().charAt(positionB);
 		return letter;
 	}
 	
@@ -47,13 +47,17 @@ public class RotorController extends Rotor implements Alphabet{
 		}
 		j = j + this.getOffset();
 		j = controlSize(j);
+		j = j + this.getInnerRingPosition();
+		j = controlSize(j);
 		for (i = 0; i < this.getRotor().length(); i++){
 			if (ALPHABET.charAt(j) == this.getRotor().charAt(i)){
 				position = i;
 				break;
 			}
 		}
-		position = position - this.getOffset();
+		position = position - this.getOffset(); 
+		position = controlSize(position);
+		position = position - this.getInnerRingPosition();
 		position = controlSize(position);
 		letter = ALPHABET.charAt(position);
 		return letter;
