@@ -8,7 +8,7 @@ import javax.swing.*;
 import application.Process;
 
 @SuppressWarnings("serial")
-public class Keyboard extends JFrame implements ActionListener{
+public class Keyboard extends JFrame implements MouseListener{
 	Process process = new Process();
 	
 	public JPanel getKeyboard (){
@@ -21,7 +21,7 @@ public class Keyboard extends JFrame implements ActionListener{
 		keyboard.setLayout(new GridLayout(3,9));
 		for (int i = 0; i < keyboardLetters.length(); i++){
 			JButton key = new JButton(""+keyboardLetters.charAt(i));
-			key.addActionListener(this);
+			key.addMouseListener(this);
 			if (i <= 8)
 				keyboard1.add(key);
 			else if (i <= 16)
@@ -36,12 +36,32 @@ public class Keyboard extends JFrame implements ActionListener{
 		
 	}
 
-	public void actionPerformed(ActionEvent e) {
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		Lampboard.lightOff();
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
 		JButton btn = (JButton)e.getSource();
 		char letter;
 		letter = btn.getText().charAt(0);
 		letter = process.cipher(btn.getText().charAt(0));
 		Lampboard.lightLamp(letter);
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
