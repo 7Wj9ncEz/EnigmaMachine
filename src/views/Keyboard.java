@@ -47,6 +47,7 @@ public class Keyboard extends JFrame implements MouseListener{
 		letter = btn.getText().charAt(0);
 		letter = process.cipher(btn.getText().charAt(0));
 		Lampboard.lightLamp(letter);
+		Output.printLetter(letter);
 		
 	}
 	@Override

@@ -2,6 +2,7 @@ package application;
 
 import java.util.*;
 
+import views.Output;
 import views.Plugboard;
 import views.RotorsPanel;
 import models.*;
@@ -49,7 +50,7 @@ public class Process {
 			plugs.get(i).setLetter2('A');
 		}
 		Plugboard.resetSettings();
-		
+		Output.eraseThings();
 	}
 	
 	public static void setPlugs(int i, char letter1, char letter2){
