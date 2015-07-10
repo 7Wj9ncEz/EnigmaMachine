@@ -52,8 +52,12 @@ public class Lampboard extends JFrame {
 		for (JLabel label : lamps){
 			if (label.getText().charAt(0) == letter)
 				label.setForeground(Color.red);
-			else
-				label.setForeground(Color.lightGray);
+		}
+	}
+	
+	public static void lightOff (){
+		for (JLabel label : lamps){
+			label.setForeground(Color.lightGray);
 		}
 	}
 

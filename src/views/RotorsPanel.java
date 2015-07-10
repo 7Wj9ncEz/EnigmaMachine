@@ -17,7 +17,7 @@ public class RotorsPanel extends JFrame implements ItemListener{
 		JPanel rotorsPanel = new JPanel();;
 		String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
 							"16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"};
-		String[] rotors = {"I", "II", "III"};
+		String[] rotors = {"I", "II", "III", "IV", "V"};
 		leftRotor = new JComboBox(rotors);
 		leftRotor.addItemListener(this);
 		leftRotor.setSelectedIndex(0);

@@ -1,11 +1,15 @@
 package models;
 
 public class Rotor {
+	private String V = "VZBRGITYUPSDNHLXAWMJQOFECK";
+	private String IV = "ESOVPZJAYQUIRHXLNFTGKDCMWB";
 	private String III = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
 	private String II = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
 	private String I = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
 	private String rotor;
 	private int offset = 0;
+	private int notchV = 26;
+	private int notchIV = 10;
 	private int notchIII = 22;
 	private int notchII = 5;
 	private int notchI = 17;
@@ -22,6 +26,14 @@ public class Rotor {
 	
 	public String getRotorIII(){
 		return this.III;
+	}
+	
+	public String getRotorIV(){
+		return this.IV;
+	}
+	
+	public String getRotorV(){
+		return this.V;
 	}
 	
 	public void setRotor(String rotor){
@@ -50,6 +62,14 @@ public class Rotor {
 	
 	public int getNotchIII(){
 		return this.notchIII;
+	}
+	
+	public int getNotchIV(){
+		return this.notchIV;
+	}
+	
+	public int getNotchV(){
+		return this.notchV;
 	}
 	
 	public void setNotch(int notch){

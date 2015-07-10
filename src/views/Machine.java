@@ -12,15 +12,19 @@ public class Machine extends JFrame implements ActionListener{
 	RotorsPanel rotorsPanel = new RotorsPanel();
 	Plugboard plugboard = new Plugboard();
 	JButton reset = new JButton ("Reset Settings");
+	Output output = new Output();
 	
 	public Machine(){
+		JPanel machine0 = new JPanel();
 		JPanel machine1 = new JPanel();
 		JPanel machine2 = new JPanel();
 		setTitle("Enigma Machine");
-		setSize(900,400);
+		setSize(950,650);
+		setLayout(new FlowLayout());
 		setBackground(Color.white);
-		setLayout(new GridLayout(1,2,25,1));
 		setResizable(false);
+		
+		machine0.setLayout(new GridLayout(1,2,25,1));
 		
 		machine1.setLayout(new GridLayout(3,1));
 		machine1.add(rotorsPanel.getRotorsPanel());
@@ -34,8 +38,13 @@ public class Machine extends JFrame implements ActionListener{
 		machine2.add("Center", plugboard.getPlugboard());
 		machine2.add("South", reset);
 		
-		add(machine1);
-		add(machine2);
+		machine0.add(machine1);
+		machine0.add(machine2);
+		
+		add(machine0);
+		add(output.getTextPanel());
+		
+		
 		addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e){
 				System.exit(0);
